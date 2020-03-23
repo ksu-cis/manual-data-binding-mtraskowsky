@@ -26,9 +26,23 @@ namespace ManualDataBinding.Data
                 NoteChanged?.Invoke(this, new EventArgs());
             }
         }
+
+        private string body = "";
         /// <summary>
         /// The text of the note
         /// </summary>
-        public string Body { get; set; } = "";
+        public string Body
+        {
+            get
+            {
+                return body;
+            }
+            set
+            {
+                if (body == value) return;
+                body = value;
+                NoteChanged?.Invoke(this, new EventArgs());
+            }
+        }
     }
 }
